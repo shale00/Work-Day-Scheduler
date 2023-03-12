@@ -36,12 +36,30 @@ setInterval(displayCurrentTime,1000);
 //Step 2
 // WHEN I scroll down
 // THEN I am presented with timeblocks for standard business hours
-
-
+// added in html
 
 //Step 3
 // WHEN I view the timeblocks for that day
 // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
+//Get current hour in dayjs
+//Create a for loop with an if statement comparing current hour to each time block hour
+//if #ID < currentHour, .addClass(past); if #ID = currentHour.... ect.
+
+var currentHour = dayjs().hour() //gets current hour
+var rootEl = $('#root');
+var timeBlocks = rootEl.children('div');
+
+for (let i = 0; i < timeBlocks.length; i++) {
+  var hourValue = parseInt(timeBlocks[i].id.split('-')[1]);
+  if (hourValue < currentHour) {
+    timeBlocks[i].classList.add("past");
+  } if (hourValue == currentHour) {
+    timeBlocks[i].classList.add("present");
+  } if (hourValue > currentHour) {
+    timeBlocks[i].classList.add("future");
+}
+}
 
 //Step 4
 // WHEN I click into a timeblock
