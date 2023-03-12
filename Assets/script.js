@@ -21,3 +21,36 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+//Step 1
+// WHEN I open the planner
+// THEN the current day is displayed at the top of the calendar
+function displayCurrentTime(){
+  var time = dayjs().format('dddd, MMMM D, YYYY h:mm:ss A');
+  $('#currentDay').text(time);
+}
+displayCurrentTime();
+setInterval(displayCurrentTime,1000);
+
+
+//Step 2
+// WHEN I scroll down
+// THEN I am presented with timeblocks for standard business hours
+
+
+
+//Step 3
+// WHEN I view the timeblocks for that day
+// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
+//Step 4
+// WHEN I click into a timeblock
+// THEN I can enter an event
+
+//Step 5
+// WHEN I click the save button for that timeblock
+// THEN the text for that event is saved in local storage
+
+//Step 6
+// WHEN I refresh the page
+// THEN the saved events persist
